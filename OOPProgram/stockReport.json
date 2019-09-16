@@ -1,0 +1,19 @@
+{
+    "Stock": [
+        {
+            "StockNames": "TCS ",
+            "NumberofShare": 45,
+            "Share": 5550
+        },
+        {
+            "StockNames": "Bridge Labz",
+            "NumberofShare": 75,
+            "Share": 4450
+        },
+        {
+            "StockNames": "IBM",
+            "NumberofShare": 50,
+            "Share": 5100
+        }
+    ]
+}

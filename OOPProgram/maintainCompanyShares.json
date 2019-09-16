@@ -1,0 +1,39 @@
+{
+    "company": [
+        {
+            "symbol": "TCS",
+            "pricePerShares": "210",
+            "totalShares": 310
+        },
+        {
+            "symbol": "INFOSYS",
+            "pricePerShares": "310",
+            "totalShares": "410"
+        },
+        {
+            "symbol": "T-SYSTEMS",
+            "pricePerShares": "410",
+            "totalShares": "510"
+        },
+        {
+            "symbol": "BRIDGELABZ",
+            "pricePerShares": "610",
+            "totalShares": "710"
+        },
+        {
+            "symbol": "TEXMO",
+            "pricePerShare": "710",
+            "totalShare": "810"
+        },
+        {
+            "symbol": "COGNIZANT",
+            "pricePerShare": "100",
+            "totalShare": "10"
+        },
+        {
+            "symbol": "CG",
+            "pricePerShares": "23",
+            "totalShares": "12"
+        }
+    ]
+}

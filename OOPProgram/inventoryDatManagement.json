@@ -1,0 +1,53 @@
+{
+    "Rice": [
+        {
+            "name": "Basmati",
+            "weight": 5,
+            "price": 50
+        },
+        {
+            "name": "Brown_rice",
+            "weight": 10,
+            "price": 70
+        },
+        {
+            "name": "Arborio",
+            "weight": 3,
+            "price": 90
+        }
+    ],
+    "Pulses": [
+        {
+            "name": "Yellow_Pigeon_Peas",
+            "weight": 2,
+            "price": 20
+        },
+        {
+            "name": "Green_Gram",
+            "weight": 4,
+            "price": 40
+        },
+        {
+            "name": "Black_Gram",
+            "weight": 1,
+            "price": 30
+        }
+    ],
+    "Wheats": [
+        {
+            "name": "Durum_Wheat",
+            "weight": 5,
+            "price": 20
+        },
+        {
+            "name": "Bread_Wheat",
+            "weight": 10,
+            "price": 30
+        },
+        {
+            "name": "sharbati",
+            "weight": 7,
+            "price": 40
+        }
+    ]
+}
