@@ -1,0 +1,52 @@
+{
+    "Person": [
+        {
+            "Name": "shaila",
+            "LastName": "aware",
+            "Address": {
+                "Street": "392",
+                "City": "melbourne",
+                "State": "perth",
+                "Nation": "austrailian",
+                "Zip": "425179",
+                "PhoneNum": "9826527152"
+            }
+        },
+        {
+            "Name": "pirf",
+            "LastName": "sd",
+            "Address": {
+                "Street": "dfd",
+                "City": "dsfs",
+                "State": "maha",
+                "Nationality": "sdfcuy",
+                "Zip Code": "123456",
+                "PhoneNum": "1234567890"
+            }
+        },
+        {
+            "Name": "fg",
+            "LastName": "fgs",
+            "Address": {
+                "Street": "fgfg",
+                "City": "sgsdfg",
+                "State": "sdfgsrg",
+                "Nationality": "ngjgngf",
+                "Zip Code": "123123",
+                "PhoneNum": "1231231231"
+            }
+        },
+        {
+            "Name": "piyu",
+            "LastName": "giri",
+            "Address": {
+                "Street": "lakhani",
+                "City": "lakhnai",
+                "State": "maha",
+                "Nationality": "indian",
+                "Zip Code": "123456",
+                "PhoneNum": "1209128734"
+            }
+        }
+    ]
+}

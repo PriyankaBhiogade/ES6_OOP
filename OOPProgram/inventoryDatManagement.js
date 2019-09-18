@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 const jsonInventoryData = fs.readFileSync('inventoryDatManagement.json', 'utf8');
 const jsonObj = JSON.parse(jsonInventoryData);
 

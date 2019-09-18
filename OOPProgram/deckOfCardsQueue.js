@@ -1,5 +1,5 @@
 const algo = require('./utility');
-const que = require('./queue')
+const que = require('./Utility/queue')
 class Deck {
     constructor() {
         this.deck = [];

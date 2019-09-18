@@ -7,7 +7,7 @@ var deck = [];
 suit.map((ele) => {
     rank.map((rk) => {
         let temp = " ";
-        deck.push(`${temp}${rk} ${ele}`)
+        deck.push(`${temp}${rk} ${ele}`);
     })
 })
 for (let i = 0; i < numberOfCard; i++) {

@@ -1,5 +1,5 @@
 const read = require('readline-sync');
-const util = require('./utility');
+const util = require('./Utility/utility');
 const fileStream = require('fs');
 const String = fileStream.readFileSync('String.text', 'utf8');
     try {

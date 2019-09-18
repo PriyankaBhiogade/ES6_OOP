@@ -1,5 +1,5 @@
 const read = require('readline-sync');
-const linked = require('./linkedlist');
+const linked = require('./Utility/linkedlist');
 const fs = require('fs');
 const element = fs.readFileSync('maintainCompanyShares.json', 'utf8');
 const companyJsonData = JSON.parse(element);
