@@ -75,13 +75,11 @@ class Address {
             }
         }
     }
-
     updateProfile(address) {
-        // let temp = -1;
         if (address.Person.length > 0) {
             console.log(`Address book Details::\n`);
             for (let i = 0; i < address.Person.length; i++) {
-                 console.log(address.Person[i]);
+                console.log(address.Person[i]);
             }
             console.log(`*******Welcome***** \n`)
             const name = read.question("Enter the Name of the Profile:: ")
@@ -89,43 +87,25 @@ class Address {
                 if (name == address.Person[k].Name) {
                     console.log(`What Do you Want to do ? `);
                     console.log(`1 : Update Address\n2 : Delete\n3 : Sort\n4 : Save \n5 : Exit`);
-                    let key = read.question("Enter your Choice: ")
+                    let key = read.question(`Enter your Choice: `);
                     switch (parseInt(key)) {
                         case 1:
-                            /**
-                             * Update Address
-                             */
-                            console.log("What Do You want to Update ?")
+                            console.log(`What Do You want to Update ?`);
                             console.log(`1 : Street\n2 : City\n3 : State\n4 : Nationality\n5 : Zip Code\n6 : Phone Number`);
-                            var choice = read.question("Enter Your Choice: ")
-
-                            this.Data(choice,address,k);
+                            let choice = read.question(`Enter Your Choice: `);
+                            this.Data(choice, address, k);
                             break;
-
-                            
-                        /**
-                         * Delete Index
-                         */
                         case 2:
-                            var update = read.question("Enter the Name which You want to Delete: ")
+                            var deleteRecord = read.question(`Enter the Name which You want to Delete: `);
                             for (let i = 0; i < address.Person.length; i++) {
-                                if (address.Person[i].Name == update) {
-                                    var index = address.Person.indexOf(address.Person[i])
-
-                                    address.Person.splice(index, 1)
-
-
-
+                                if (address.Person[i].Name == deleteRecord) {
+                                    let index = address.Person.indexOf(address.Person[i]);
+                                    address.Person.splice(index, 1);
                                 }
-
                             }
-                            save()
-                            console.log("Delete Sucessfully.......")
+                            this.save(address);
+                            console.log(`Delete Sucessfully.......`);
                             break;
-
-                        /**
-                         * Sort Last Name
-                         */
                         case 3:
                             let temp;
                             for (let i = 0; i < address.Person.length; i++) {
@@ -134,73 +114,46 @@ class Address {
                                         temp = address.Person[j];
                                         address.Person[j] = address.Person[j + 1];
                                         address.Person[j + 1] = temp;
-
-
                                     }
                                 }
                             }
-                            console.log(address)
-                            // address.Person[k] = obj;
-                            save()
-                            // file.writeFile('AddressBook.json', JSON.stringify(address), 'utf-8');
+                            console.log(address);
+                            this.save(address);
                             break;
-
-                        /**
-                         * Save new Updation
-                         */
                         case 4:
-                            function save() {
-                                file.writeFile('AddressBook.json', JSON.stringify(address), 'utf-8', function (err) {
-                                    if (err) throw err
-                                    console.log('File Saved!!')
-                                })
-                                //file.writeFile('AddressBook.json', JSON.stringify(address), 'utf -8')
-
-                            }
+                            this.save(address);
                             break;
-
                         case 5:
-
-                            console.log('Thank You......')
+                            console.log(`Thank You......`);
                             break;
                         default:
-                            console.log("Please enter valid option");
+                            console.log(`Please enter valid option`);
                             break;
                     }
                 }
-
-
-
             }
-
         }
         else {
-
-            console.log("Profile Unavilable ....Please create New One ")
-            this.createProfile(address)
-
+            console.log(`Profile Unavilable ....Please create New One `);
+            this.createProfile(address);
         }
-
     }
-
     deleteDetail(address) {
-        const deletedName = read.question(`Enter the Name which You want to Delete::  `)
+        const deletedName = read.question(`Enter the Name which You want to Delete::  `);
         for (let i = 0; i < address.Person.length; i++) {
             if (address.Person[i].Name == deletedName) {
                 let index = address.Person.indexOf(address.Person[i])
                 address.Person.splice(index, 1)
             }
         }
-        console.log("Delete Sucessfully.......")
+        console.log(`Delete Sucessfully.......`);
     }
 
-
-    Data(choice,address,k){
+    Data(choice, address, k) {
         switch (parseInt(choice)) {
             case 1:
-                //Street Update
-                let streetUpdate = read.question("Enter New Street:: ")
-                let obj = {
+                let streetUpdate = read.question(`Enter New Street:: `);
+                const obj1 = {
                     "Name": address.Person[k].Name,
                     "LastName": address.Person[k].LastName,
                     "Address": {
@@ -212,17 +165,16 @@ class Address {
                         "PhoneNum": address.Person[k]["Address"].moNum
                     }
                 }
-                address.Person[k] = obj;
-                this.save(address)
+                address.Person[k] = obj1;
+                this.save(address);
                 break;
             case 2:
-                //City Update
-                let cityUpdate = read.question(" Enter New City :: ")
+                let cityUpdate = read.question(`Enter New City :: `);
                 while (nameRestriction.test(cityUpdate) == false) {
-                    console.log("No Special characters ..Invalid City! ");
-                    cityUpdate = read.question(" ReEnter New City:: ")
+                    console.log(`No Special characters ..Invalid City! `);
+                    cityUpdate = read.question(`ReEnter New City:: `);
                 }
-                 obj = {
+                const obj2 = {
                     "Name": address.Person[k].Name,
                     "LastName": address.Person[k].LastName,
                     "Address": {
@@ -233,125 +185,105 @@ class Address {
                         "Zip": address.Person[k]["Address"].Zip,
                         "PhoneNum": address.Person[k]["Address"].moNum
                     }
-    
                 }
-                address.Person[k] = obj;
-                this.save()
+                address.Person[k] = obj2;
+                this.save();
                 break;
-            //State Update
             case 3:
-                let StateUpadate = read.question("Enter the New State:: ")
+                let StateUpadate = read.question(`Enter the New State:: `);
                 while (nameRestriction.test(StateUpadate) == false) {
-                    console.log("No Special characters ..Invalid State! ");
-                    StateUpadate = read.question("ReEnter New State:: ")
+                    console.log(`No Special characters ..Invalid State! `);
+                    StateUpadate = read.question(`ReEnter New State:: `);
                 }
-                 obj = {
-                    "Name": addressb.Person[k].Name,
+                const obj3 = {
+                    "Name": address.Person[k].Name,
                     "LastName": address.Person[k].LastName,
                     "Address": {
-                        "Street": address.Person[k]["Street"].Street,
-                        "City": address.Person[k]["City"].City,
+                        "Street": address.Person[k]["Address"].Street,
+                        "City": address.Person[k]["Address"].City,
                         "State": StateUpadate,
-                        "Nationality": address.Person[k]["Nationality"].Nation,
-                        "Zip": address.Person[k]["Zip Code"].Zip,
-                        "PhoneNum": address.Person[k]["Phone Number"].moNum
+                        "Nationality": address.Person[k]["Address"].Nation,
+                        "Zip": address.Person[k]["Address"].Zip,
+                        "PhoneNum": address.Person[k]["Address"].moNum
                     }
-    
                 }
-                address.Person[k] = obj;
-                this.save()
+                address.Person[k] = obj3;
+                this.save();
                 break;
-            //Nationality Update
-    
             case 4:
-                var nationUpdate = read.question("Enter New Nationality:: ")
+                let nationUpdate = read.question(`Enter New Nationality:: `);
                 while (nameRestriction.test(nationUpdate) == false) {
-                    console.log("No Special characters ..Invalid Nationality! ");
-                    nationUpdate = read.question(" ReEnter New Nationality: ")
+                    console.log(`No Special characters ..Invalid Nationality! `);
+                    nationUpdate = read.question(`ReEnter New Nationality:`);
                 }
-                 obj = {
+                const obj4 = {
                     "Name": address.Person[k].Name,
                     "LastName": address.Person[k].LastName,
                     "Address": {
-                        "Street": address.Person[k]["Street"].Street,
-                        "City": address.Person[k]["City"].City,
-                        "State": address.Person[k]["State"].State,
+                        "Street": address.Person[k]["Address"].Street,
+                        "City": address.Person[k]["Address"].City,
+                        "State": address.Person[k]["Address"].State,
                         "Nationality": nationUpdate,
-                        "Zip": address.Person[k]["Zip Code"].Zip,
-                        "PhoneNum": address.Person[k]["Phone Number"].moNum
+                        "Zip": address.Person[k]["Address"].Zip,
+                        "PhoneNum": address.Person[k]["Address"].moNum
                     }
-    
                 }
-                address.Person[k] = obj;
-                this.save()
+                address.Person[k] = obj4;
+                this.save();
                 break;
-    
-            //Zip Code Update
             case 5:
-                let zipUpdate = read.question("Enter New Zip Code:: ")
+                let zipUpdate = read.question(`Enter New Zip Code:: `);
                 while (contactRestriction.test(zipUpdate) == false && zipUpdate.length != 6) {
-                    console.log("Enter 6 digit Number..Invalid Zip Code! ");
-                    zipUpdate = read.question("ReEnter New Zip Code:: ")
+                    console.log(`Enter 6 digit Number..Invalid Zip Code! `);
+                    zipUpdate = read.question(`ReEnter New Zip Code:: `);
                 }
-                 obj = {
+                const obj5 = {
                     "Name": address.Person[k].Name,
                     "LastName": address.Person[k].LastName,
                     "Address": {
-                        "Street": address.Person[k]["Street"].Street,
-                        "City": address.Person[k]["City"].City,
-                        "State": address.Person[k]["State"].State,
-                        "Nationality": address.Person[k]["Nationality"].Nation,
-                        "Zip": zipUpdate,
-                        "PhoneNum": address.Person[k]["Phone Number"].moNum
+                        "Street": address.Person[k]["Address"].Street,
+                        "City": address.Person[k]["Address"].City,
+                        "State": address.Person[k]["Address"].State,
+                        "Nationality": address.Person[k]["Address"].Nation,
+                        "Zip":zipUpdate,
+                        "PhoneNum": address.Person[k]["Address"].moNum
                     }
-    
                 }
-                address.Person[k] = obj;
-                this.save()
+                address.Person[k] = obj5;
+                this.save();
                 break;
-    
-            //Phone number update
-    
             case 6:
-                let moNumUpdate = read.question("Enter New Phone Number:: ")
+                let moNumUpdate = read.question(`Enter New Phone Number:: `);
                 while (contactRestriction.test(moNumUpdate) == false && moNumUpdate.length != 10) {
-                    console.log("Enter 10 digit Phone Number ..Invalid Name! ");
-                    moNumUpdate = read.question("ReEnter New Phone Number:: ")
+                    console.log(`Enter 10 digit Phone Number ..Invalid Name! `);
+                    moNumUpdate = read.question(`ReEnter New Phone Number:: `);
                 }
-                 obj = {
+                const obj6 = {
                     "Name": address.Person[k].Name,
                     "LastName": address.Person[k].LastName,
                     "Address": {
-                        "Street": address.Person[k]["Street"].Street,
-                        "City": address.Person[k]["City"].City,
-                        "State": address.Person[k]["State"].State,
-                        "Nationality": address.Person[k]["Nationality"].Nation,
-                        "Zip": address.Person[k]["Zip Code"].Zip,
-                        "PhoneNum": moNumUpdate,
+                        "Street": address.Person[k]["Address"].Street,
+                        "City": address.Person[k]["Address"].City,
+                        "State": address.Person[k]["Address"].State,
+                        "Nationality": address.Person[k]["Address"].Nation,
+                        "Zip": address.Person[k]["Address"].Zip,
+                        "PhoneNum":moNumUpdate
                     }
-    
                 }
-                address.Person[k] = obj;
-                this.save()
-                fs.writeFile('AddressBook.json', JSON.stringify(address), 'utf-8');
+                address.Person[k] = obj6;
+                this.save();
                 break;
-    
             case 7:
-                console.log("Thank You.....")
+                console.log(`Thank You.....`);
                 break;
         }
-    
     }
-
     save(address) {
-        fs.writeFile('AddressBook.json', JSON.stringify(address), 'utf-8', function (err) {
+        fs.writeFile('addressBook.json', JSON.stringify(address), 'utf-8', function (err) {
             if (err) throw err
-            console.log('File Saved!!')
+            console.log(`File Saved!!`);
         })
-
-
-
-}
+    }
 }
 module.exports = {
     Address

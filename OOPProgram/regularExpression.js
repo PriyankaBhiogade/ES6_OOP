@@ -2,22 +2,24 @@ const read = require('readline-sync');
 const util = require('./Utility/utility');
 const fileStream = require('fs');
 const String = fileStream.readFileSync('String.text', 'utf8');
+nameRestriction = /[a-z]/g;
+contactRestriction = /[0-9]/g;
     try {
-        const name = read.question(`Enter the name: `);
-        if (!isNaN(name)) {
+        let name = read.question(`Enter the name: `);
+            while (nameRestriction.test(name) == false) {
             console.log(`Please Enter valid Name and Alphabet only`);
-            read.question(`Enter the name: `);
+            name = read.question(`Enter the name: `);
         }
-        const fullName = read.question(`Enter the Full name: `);
-        // if (!isNaN(fullName)) {
-        //     console.log(`Please Enter valid Full Name and Alphabet only`);
-        //     read.question(`Enter the Full name: `);
-        // }
+        let fullName = read.question(`Enter the Full name: `);
+        while(nameRestriction.test(fullName) == false) {
+            console.log(`Please Enter valid Full Name and Alphabet only`);
+            fullName = read.question(`Enter the Full name: `);
+        }
 
-       const moNum = read.question(`Enter Mobile Number: `);
-       if (isNaN(moNum) && moNum.length != 10) {
+        let moNum = read.question(`Enter Mobile Number: `);
+       while(contactRestriction.test(moNum) == false && moNum.length != 10) {
             console.log(`Please Enter valid 10 digit Mobile Number`);
-            read.question(`Enter the Mobile Number:`);
+            moNum = read.question(`Enter the Mobile Number:`);
 
         }
         const date = new Date();

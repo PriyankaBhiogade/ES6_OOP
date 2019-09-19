@@ -14,23 +14,18 @@ switch (parseInt(choice)) {
     case 1:
         addressBookObject.createProfile(jsonAddressData);
         break;
-
     case 2:
         addressBookObject.displayDetail(jsonAddressData);
         break;
-
     case 3:
         addressBookObject.updateProfile(jsonAddressData);
         break;
-
     case 4:
         addressBookObject.deleteDetail(jsonAddressData);
         break;
-
     case 5:
         console.log(`Thank You!....`)
         break;
-
     default:
         console.log(`Please enter a valid option!!`);
 }
