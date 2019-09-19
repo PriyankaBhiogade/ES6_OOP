@@ -1,7 +1,7 @@
 
 class Deck {
     constructor() {
-        this.deck = [];
+      this.deck = [];
         const suits = ['♥', '♣', '♠', '♦'];
         const ranks = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
         for (let suit in suits) {
@@ -28,19 +28,25 @@ class Deck {
             cards.map((card) => {
                 arr[player][card] = this.deck[card + x]
             })
-            x = x + 9;
+            x = x + y;
         })
         let n = 1;
         players.map((player) => {
              console.log(`${n++}th Players Cards :: \n`);
-            cards.map((card) => {
-                 console.log(`[${arr[player][card]}] \n`);
+           cards.map((card) => {
+                let playerCard = arr[player][card];
+                 console.log(`[${playerCard}] \n`);
             })
              console.log('\n');
         });
+        
+        return([arr[0]],arr[1],arr[2],arr[3]);
     }
 }
 const deck1 = new Deck();
 deck1.shuffle()
 deck1.players()
 
+module.exports = {
+        Deck
+    }

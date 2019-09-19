@@ -1,3 +1,4 @@
+
 module.exports = {
 
     replceRegex(name, fullName, num, day, fileString) {
@@ -25,4 +26,6 @@ module.exports = {
             }
             return arr;
           }, 
+
+
 }
